@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 
-export class GetData{
+export class GetData {
 
-    getHideoutTypeNumbers():any{
+    getHideoutTypeNumbers(): any {
         const hideoutTypeNumbers = {
             "vents": 0,
             "security": 1,
@@ -36,10 +36,8 @@ export class GetData{
         return hideoutTypeNumbers
     }
 
-    getHideoutAreasDefaultState():any{
-        const profileHideoutAreasDefaultState =
-        [
-            {
+    getHideoutAreasDefaultState(): any {
+        const profileHideoutAreasDefaultState = [{
                 "active": true,
                 "completeTime": 0,
                 "constructing": false,
@@ -86,8 +84,7 @@ export class GetData{
                 "lastRecipe": "",
                 "level": 0,
                 "passiveBonusesEnabled": true,
-                "slots": [
-                    {
+                "slots": [{
                         "locationIndex": 0
                     },
                     {
@@ -131,8 +128,7 @@ export class GetData{
                 "lastRecipe": "",
                 "level": 0,
                 "passiveBonusesEnabled": true,
-                "slots": [
-                    {
+                "slots": [{
                         "locationIndex": 0
                     },
                     {
@@ -251,8 +247,7 @@ export class GetData{
                 "lastRecipe": "",
                 "level": 0,
                 "passiveBonusesEnabled": false,
-                "slots": [
-                    {
+                "slots": [{
                         "locationIndex": 0
                     },
                     {
@@ -297,8 +292,7 @@ export class GetData{
                 "lastRecipe": "",
                 "level": 0,
                 "passiveBonusesEnabled": true,
-                "slots": [
-                    {
+                "slots": [{
                         "locationIndex": 0
                     },
                     {
@@ -506,7 +500,7 @@ export class GetData{
         return profileHideoutAreasDefaultState
     }
 
-    getFormattedTime():string {
+    getFormattedTime(): string {
         const today = new Date();
         const y = today.getFullYear();
         // JavaScript months are 0-based.
@@ -518,7 +512,7 @@ export class GetData{
         return "d=" + m + "." + d + "." + y + " t=" + h + "." + mi + "." + s;
     }
 
-    firTweakItemBlacklist():Array<string>{
+    firTweakItemBlacklist(): Array < string > {
         return [
             "544a11ac4bdc2d470e8b456a",
             "5732ee6a24597719ae0c0281",
@@ -535,7 +529,7 @@ export class GetData{
         roubles: string;
         euros: string;
         dollars: string;
-    }{
+    } {
         return {
             "roubles": "5449016a4bdc2d6f028b456f",
             "euros": "569668774bdc2da2298b4568",
@@ -543,7 +537,7 @@ export class GetData{
         }
     }
 
-    getAllValidMapnames():Array<string>{
+    getAllValidMapnames(): Array < string > {
         return [
             "bigmap",
             "factory4_day",
@@ -554,27 +548,30 @@ export class GetData{
             "rezervbase",
             "shoreline",
             "tarkovstreets",
-            "woods"
+            "woods",
+            "sandbox"
         ]
     }
 
-    getCarExtractsByMapname():{
+    getCarExtractsByMapname(): {
         "Dorms V-Ex": string;
         "PP Exfil": string;
         " V-Ex_light": string;
         "E7_car": string;
         "South V-Ex": string;
-    }{
+        "Sandbox_VExit": string;
+    } {
         return {
             "Dorms V-Ex": "customs",
             "PP Exfil": "interchange",
             " V-Ex_light": "lighthouse",
             "E7_car": "streets",
-            "South V-Ex": "woods"
+            "South V-Ex": "woods",
+            "Sandbox_VExit": "sandbox"
         }
     }
 
-    getTraderIdsByName():{
+    getTraderIdsByName(): {
         mechanic: string;
         skier: string;
         peacekeeper: string;
@@ -582,7 +579,7 @@ export class GetData{
         prapor: string;
         jaeger: string;
         ragman: string;
-    }{
+    } {
         return {
             "mechanic": "5a7c2eca46aef81a7ca2145d",
             "skier": "58330581ace78e27b8b10cee",
@@ -590,20 +587,20 @@ export class GetData{
             "therapist": "54cb57776803fa99248b456e",
             "prapor": "54cb50c76803fa8b248b4571",
             "jaeger": "5c0647fdd443bc2504c2d371",
-            "ragman": "5ac3b934156ae10c4430e83c"       
+            "ragman": "5ac3b934156ae10c4430e83c"
         }
     }
 
-    getMapExfilNames(mapName:string): {
+    getMapExfilNames(mapName: string): {
         mapName: string[];
         pmc: string[];
         scav: string[];
-    }{
+    } {
 
         const bigmapExfils = {
 
             mapName: ["bigmap"],
-        
+
             pmc: [
                 "Crossroads",
                 "Smuggler's Boat",
@@ -615,7 +612,7 @@ export class GetData{
                 "Dorms V-Ex",
                 "EXFIL_ZB013"
             ],
-        
+
             scav: [
                 "Shack",
                 "Beyond Fuel Tank",
@@ -635,28 +632,28 @@ export class GetData{
                 "Military Checkpoint"
             ]
         }
-        
+
         const factoryExfils = {
-        
+
             mapName: ["factory4_day", "factory4_night"],
-        
+
             pmc: [
                 "Cellars",
                 "Gate 3",
                 "Gate 0",
                 "Gate m"
             ],
-        
+
             scav: [
                 "Camera Bunker Door",
                 "Office Window"
             ]
         }
-        
+
         const interchangeExfils = {
-        
+
             mapName: ["interchange"],
-        
+
             pmc: [
                 "NW Exfil",
                 "SE Exfil",
@@ -665,14 +662,14 @@ export class GetData{
                 "Hole Exfill",
                 "Interchange Cooperation"
             ],
-        
+
             scav: []
         }
-        
+
         const laboratoryExfils = {
-        
+
             mapName: ["laboratory"],
-        
+
             pmc: [
                 "lab_Parking_Gate",
                 "lab_Hangar_Gate",
@@ -682,14 +679,14 @@ export class GetData{
                 "lab_Vent",
                 "lab_Elevator_Cargo"
             ],
-        
+
             scav: []
         }
-        
+
         const lighthouseExfils = {
-            
+
             mapName: ["lighthouse"],
-        
+
             pmc: [
                 "EXFIL_Train",
                 "Alpinist_light",
@@ -699,7 +696,7 @@ export class GetData{
                 "Shorl_free",
                 " V-Ex_light"
             ],
-        
+
             scav: [
                 "Shorl_free_scav",
                 "Scav_Coastal_South",
@@ -708,11 +705,11 @@ export class GetData{
                 "Scav_Industrial_zone"
             ]
         }
-        
+
         const rezervbaseExfils = {
-        
+
             mapName: ["rezervbase"],
-        
+
             pmc: [
                 "EXFIL_Train",
                 "Alpinist",
@@ -721,7 +718,7 @@ export class GetData{
                 "EXFIL_BUNKER_D2",
                 "EXFIL_vent"
             ],
-        
+
             scav: [
                 "Exit1",
                 "Exit2",
@@ -729,11 +726,11 @@ export class GetData{
                 "Exit4"
             ]
         }
-        
+
         const shorelineExfils = {
-        
+
             mapName: ["shoreline"],
-        
+
             pmc: [
                 "Tunnel",
                 "Rock Passage",
@@ -743,7 +740,7 @@ export class GetData{
                 "Lighthouse_pass",
                 "Road_at_railbridge"
             ],
-        
+
             scav: [
                 "Scav Road to Customs",
                 "Lighthouse",
@@ -755,11 +752,11 @@ export class GetData{
                 "Adm Basement"
             ]
         }
-        
+
         const tarkovstreetsExfils = {
-        
+
             mapName: ["tarkovstreets"],
-        
+
             pmc: [
                 "E1",
                 "E2",
@@ -771,9 +768,10 @@ export class GetData{
                 "E7_car",
                 "E8_yard",
                 "E9_sniper",
-                "Exit_E10_coop"
+                "Exit_E10_coop",
+                "scav_e8"
             ],
-        
+
             scav: [
                 "scav_e1",
                 "scav_e2",
@@ -784,11 +782,11 @@ export class GetData{
                 "scav_e8"
             ]
         }
-        
+
         const woodsExfils = {
-        
+
             mapName: ["woods"],
-        
+
             pmc: [
                 "ZB-016",
                 "Outskirts",
@@ -799,7 +797,7 @@ export class GetData{
                 "Factory Gate",
                 "un-sec"
             ],
-        
+
             scav: [
                 "Outskirts Water",
                 "Dead Man's Place",
@@ -812,6 +810,26 @@ export class GetData{
                 "RUAF Roadblock"
             ]
         }
+        const sandboxexfils = {
+
+            mapName: ["sandbox"],
+
+            pmc: [
+                "Sandbox_VExit",
+                "Unity_free_exit",
+                "Scav_coop_exit",
+                "Nakatani_stairs_free_exit",
+                "Sniper_exit"
+            ],
+
+            scav: [
+                "Sandbox_VExit",
+                "Unity_free_exit",
+                "Scav_coop_exit",
+                "Nakatani_stairs_free_exit",
+                "Sniper_exit"
+            ]
+        }
 
         const maps = [
             bigmapExfils,
@@ -822,18 +840,19 @@ export class GetData{
             rezervbaseExfils,
             shorelineExfils,
             tarkovstreetsExfils,
-            woodsExfils
+            woodsExfils,
+            sandboxexfils
         ]
 
-        for (const m in maps){
-            
-            if (maps[m].mapName.includes(mapName)){
+        for (const m in maps) {
+
+            if (maps[m].mapName.includes(mapName)) {
                 return maps[m]
             }
         }
     }
 
-    getStashIDsBySize():Array<string>{
+    getStashIDsBySize(): Array < string > {
         return [
             "566abbc34bdc2d92178b4576",
             "5811ce572459770cba1a34ea",

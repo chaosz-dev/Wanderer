@@ -9,7 +9,8 @@
         "rezervbase",
         "shoreline",
         "tarkovstreets",
-        "woods"
+        "woods",
+        "sandbox"
     ],
     "bigmap": [
         "Crossroads",
@@ -136,5 +137,10 @@
         "East Gate",       "Mountain Stash",
         "West Border",     "Old Station",
         "RUAF Roadblock"
+    ],
+    "sandbox": [
+		    "Sandbox_VExit",    "Unity_free_exit",
+		    "Scav_coop_exit",  "Nakatani_stairs_free_exit",
+		    "Sniper_exit"
     ]
 }

@@ -500,7 +500,8 @@
             },
 
             "can_infil_to":{
-                "bigmap": "Warehouse 17"
+                "bigmap": "Warehouse 17",
+				"sandbox": "Nakatani_stairs_free_exit"
 
             }
         },
@@ -648,28 +649,29 @@
             }
         },
 
-        "Interchange.Car-alt>-Streets.ExpoCP":{
+        "Interchange.Car--Sandbox.Vexit":{
 
             "access_via":{
-                "interchange": ["PP Exfil"]
+                "interchange": ["PP Exfil"],
+        				"sandbox": ["Sandbox_VExit"]
             },
 
             "can_infil_to":{
                 "interchange": "Interchange Vehicle Extract",
-                "tarkovstreets": "Expo Checkpoint"
+                "Sandbox": "Sandbox_VExit"
             }
         },
 
-        "Interchange.Emercom--Streets.ExpoCP":{
+        "Interchange.Emercom--Streets.courtyard":{
 
             "access_via":{
                 "interchange": ["SE Exfil"],
-                "tarkovstreets": ["E7"]
+                "tarkovstreets": ["E8_yard"]
             },
 
             "can_infil_to":{
                 "interchange": "Emercom",
-                "tarkovstreets": "Expo Checkpoint"
+                "tarkovstreets": "Courtyard"
             }
         },
 
@@ -859,6 +861,19 @@
                 "tarkovstreets": "Klimov Street"
             }
         },
+		
+		"Streets.Klimov_mall--Sandbox.Nakatani":{
+			
+			"access_via":{
+				"tarkovstreets": ["scav_e8"],
+				"sandbox": ["Nakatani_stairs_free_exit"]
+			},
+			
+			"can_infil_to":{
+				"sandbox": "Nakatani_stairs_free_exit",
+				"tarkovstreets": "Klimov mall"
+			}
+		},
 
         "Lab.HangarGate-alt>-Streets.Catacombs":{
 
@@ -894,6 +909,25 @@
                 "laboratory": "Cargo Elevator",
                 "tarkovstreets": "Basement Descent"
             }
-        }
+        },
+		"Sandbox.Emercom":{
+			 "access_via":{
+				"sandbox": ["Unity_free_exit"]
+			 },
+			 
+			 "can_infil_to":{
+				 "sandbox": "Unity_free_exit"
+			 }
+		},
+				"Sandbox.Mira":{
+			 "access_via":{
+				"sandbox": ["Sniper_exit"]
+			 },
+			 
+			 "can_infil_to":{
+				 "sandbox": "Sniper_exit",
+				 "woods": "Scav Bridge"
+			 }
+		}
     }
 }

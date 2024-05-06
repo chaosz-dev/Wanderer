@@ -1,10 +1,10 @@
 {
-    "name": "Traveler",
-    "version": "1.1.1",
+    "name": "Wanderer",
+    "version": "1.0.0",
     "main": "src/mod.js",
-    "license": "CC BY-NC-ND 4.0",
-    "author": "Jehree",
-    "akiVersion": "3.7.1",
+    "license": "Creative Commons License",
+    "author": "Original mod by Jehree, Currently developed by Chaosz with help from Thebloodylies",
+    "akiVersion": "3.8.1",
     "scripts": {
         "setup": "npm i",
         "build": "node ./packageBuild.ts"

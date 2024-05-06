@@ -123,13 +123,14 @@
             "E5": "",
             "E6": "",
             "E7_car": "Expo CP (to Interchange, Emercom)",
-            "E8_yard": "",
+            "E8_yard": "Courtyard (to Interchange, Emercom)",
             "E9_sniper": "Klimov Street (Remote Home Access)",
 
             "scav_e1": "Basement Descent (to Lab, Main Elevator)",
             "scav_e2": "Entrance to Catacombs (to Lab, Parking Gate)",
             "scav_e3": "Vents (to Lab, Vents)",
             "scav_e4": "Manhole (to Reserve, Manhole)",
+			"scav_e8": "Klimov Mall (to Nakatani basement)",
 
         "//woods": true,
             "ZB-016": "",
@@ -149,6 +150,14 @@
             "Mountain Stash": "",
             "West Border": "",
             "Old Station": "",
+			"Outskirts Water": "Scav Bridge (to GZ, Mira ave.)",
+
+		"//Ground Zero": true,
+			"Sandbox_VExit": "Police Cordon (to Interchange, power plant)",
+			"Scav_coop_exit": "",
+			"Sniper_Exit": "Mira Ave. (to Woods, scav bridge)",
+			"Unity_free_exit": "",
+			"Nakatani_stairs_free_exit": "Nakatani Basement (to Streets, Klimov Mall)",
 
         "//misc locale changes": true,
             "UI/HealthTreatmentScreen_Description": "Out of raid healing: Choose what you would like to heal immediately.",

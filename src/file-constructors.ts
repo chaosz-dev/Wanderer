@@ -3,38 +3,50 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as config from "../config/config.json";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
+import {
+    IAkiProfile
+} from "@spt-aki/models/eft/profile/IAkiProfile";
 
-import { GetData } from "./useful-data";
+import {
+    GetData
+} from "./useful-data";
 
 const Get_Data = new GetData()
 
 
-export class FileConstructors{
+export class FileConstructors {
 
     modPath: string = path.normalize(path.join(__dirname, ".."));
 
 
-    profileFolderConstructor(profileFolderName:string, profile:IAkiProfile): void{
+    profileFolderConstructor(profileFolderName: string, profile: IAkiProfile): void {
 
         //set profile folder path and create it if it doesn't exist
         const profileFolderPath = `${this.modPath}/profiles/${profileFolderName}`
         const profileBackupFolder = `${this.modPath}/profiles/.profile backups/${profileFolderName}`
         const stashesFolderPath = `${profileFolderPath}/stashes`
         const hideoutsFolderPath = `${profileFolderPath}/hideouts`
-        if (!fs.existsSync(profileFolderPath)) {fs.mkdirSync(profileFolderPath)}
-        if (!fs.existsSync(profileBackupFolder)) {fs.mkdirSync(profileBackupFolder)}
-        if (!fs.existsSync(stashesFolderPath)) {fs.mkdirSync(stashesFolderPath)}
-        if (!fs.existsSync(hideoutsFolderPath)) {fs.mkdirSync(hideoutsFolderPath)}
+        if (!fs.existsSync(profileFolderPath)) {
+            fs.mkdirSync(profileFolderPath)
+        }
+        if (!fs.existsSync(profileBackupFolder)) {
+            fs.mkdirSync(profileBackupFolder)
+        }
+        if (!fs.existsSync(stashesFolderPath)) {
+            fs.mkdirSync(stashesFolderPath)
+        }
+        if (!fs.existsSync(hideoutsFolderPath)) {
+            fs.mkdirSync(hideoutsFolderPath)
+        }
 
         //create profile files if they don't already exist
         this.statusesFileConstructor(profileFolderPath)
         this.sysmemFileConstructor(profileFolderPath)
         this.stashFilesConstructor(profileFolderPath, profile)
-        this.hideoutFilesConstructor(profileFolderPath, profile) 
+        this.hideoutFilesConstructor(profileFolderPath, profile)
     }
 
-    statusesFileConstructor(profileFolderPath:string): void{
+    statusesFileConstructor(profileFolderPath: string): void {
 
         const statusesFileLayout = {
             "offraid_position": config.home,
@@ -44,7 +56,7 @@ export class FileConstructors{
         this.fileConstructor(`${profileFolderPath}/statuses.json`, statusesFileLayout)
     }
 
-    sysmemFileConstructor(profileFolderPath:string): void{
+    sysmemFileConstructor(profileFolderPath: string): void {
 
         const sysmemFileLayout = {
             "WARNING": "DO NOT MANUALLY CHANGE ANY `sysmem_` SETTING",
@@ -58,14 +70,14 @@ export class FileConstructors{
         this.fileConstructor(`${profileFolderPath}/sysmem.json`, sysmemFileLayout)
     }
 
-    stashFilesConstructor(profileFolderPath:string, profile:IAkiProfile): void{
+    stashFilesConstructor(profileFolderPath: string, profile: IAkiProfile): void {
 
         const configStashes = config.stashes
         const profileItems = profile.characters.pmc.Inventory?.items ?? []
         const stashesFolderPath = `${profileFolderPath}/stashes`
-        const statuses = JSON.parse(fs.readFileSync(`${profileFolderPath}/statuses.json`, "utf8")) 
+        const statuses = JSON.parse(fs.readFileSync(`${profileFolderPath}/statuses.json`, "utf8"))
 
-        for (const stashName in configStashes){
+        for (const stashName in configStashes) {
 
             const items = []
 
@@ -79,11 +91,11 @@ export class FileConstructors{
             //load the game, exit, then delete all stash files to get them to regen without losing
             //your home stash. Probably unnecessary.. but it isn't hurting anything so I'm leaving it.
             //ME FROM FURTHER INTO THE FUTURE. This allows previously created profiles to work correctly. Def keep.
-            if (configStashes[stashName].access_via.includes(statuses.offraid_position)){
+            if (configStashes[stashName].access_via.includes(statuses.offraid_position)) {
 
-                for (let i = profileItems.length; i > 0; i--){
-                    if (profileItems[i-1].slotId === "hideout"){
-                        items.push(profileItems[i-1])
+                for (let i = profileItems.length; i > 0; i--) {
+                    if (profileItems[i - 1].slotId === "hideout") {
+                        items.push(profileItems[i - 1])
                     }
                 }
             }
@@ -97,24 +109,26 @@ export class FileConstructors{
         }
     }
 
-    hideoutFilesConstructor(profileFolderPath:string, profile:IAkiProfile): void{
+    hideoutFilesConstructor(profileFolderPath: string, profile: IAkiProfile): void {
 
         const hideoutsFolderPath = `${profileFolderPath}/hideouts`
         const hideouts = config.hideouts
         const defaultAreas = Get_Data.getHideoutAreasDefaultState()
-        const statuses = JSON.parse(fs.readFileSync(`${profileFolderPath}/statuses.json`, "utf8")) 
+        const statuses = JSON.parse(fs.readFileSync(`${profileFolderPath}/statuses.json`, "utf8"))
 
-        for (const hideoutName in hideouts){
+        for (const hideoutName in hideouts) {
 
             let areas = []
 
-            if (hideouts[hideoutName].access_via.includes(statuses.offraid_position)){
+            if (hideouts[hideoutName].access_via.includes(statuses.offraid_position)) {
                 areas = profile.characters.pmc?.Hideout?.Areas ?? defaultAreas
-            } else {areas = defaultAreas}
+            } else {
+                areas = defaultAreas
+            }
 
             const hideoutFileLayout = {
                 "Name": hideoutName,
-    
+
                 "Areas": [...areas],
 
                 "Improvements": {},
@@ -126,11 +140,11 @@ export class FileConstructors{
         }
     }
 
-    fileConstructor(filePath:string, fileData:any): void{
+    fileConstructor(filePath: string, fileData: any): void {
 
         const fileDataJson = JSON.stringify(fileData, null, 2)
 
-        if (!fs.existsSync(`${filePath}`)){
+        if (!fs.existsSync(`${filePath}`)) {
 
             fs.writeFileSync(`${filePath}`, fileDataJson)
         }
